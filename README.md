@@ -7,7 +7,7 @@ You can use it to save markdown previews as PDFs and have them look _exactly_ li
 ### Can I see it in action?
 ![](demo.gif)
 
-As for the results, compare the [Electron README](https://github.com/electron/electron/blob/master/README.md) with its [PDF counterpart](example-readme.pdf).
+As for the results, compare the [Electron README](https://github.com/electron/electron/blob/master/README.md) with its [PDF counterpart](https://github.com/jerry1100/gfm-stripper/raw/master/example-readme.pdf).
 
 ### How do I use it?
 1. Go to any page where a GitHub markdown preview is visible.
