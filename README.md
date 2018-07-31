@@ -1,5 +1,5 @@
-# gfm-stripper
-Chrome extension that strips all the excess HTML from GitHub markdown previews, leaving just the preview.
+# gfm-to-pdf
+Convert GitHub markdown previews to downloadable PDFs
 
 ### What's it used for?
 You can use it to save markdown previews as PDFs and have them look _exactly_ like how it does on GitHub. No need to download the markdown file and run it through a converter.
