@@ -11,5 +11,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     preview.style.border = 0;
 
     document.body.innerHTML = preview.outerHTML;
+    window.print();
   }
 });
