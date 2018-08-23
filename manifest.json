@@ -1,9 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "GitHub-Flavored Markdown to PDF",
+  "name": "GFM to PDF",
+  "description": "Convert GitHub Flavored Markdown previews to downloadable PDFs.",
   "version": "0.1",
   "browser_action": {
-    "default_icon": "hal.png"
+    "default_icon": "icon.png"
   },
   "background": {
     "scripts": [
