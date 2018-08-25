@@ -4,7 +4,6 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.message === 'click') {
     const style = document.createElement('style');
-    style.id = 'gfm-to-pdf-style';
     style.innerHTML = `
       @media print {
         body {
@@ -21,5 +20,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     `;
     document.head.appendChild(style);
     window.print();
+    document.head.removeChild(style);
   }
 });
