@@ -3,14 +3,23 @@
  */
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.message === 'click') {
-    const preview = document.getElementsByClassName('markdown-body entry-content')[0];
+    const style = document.createElement('style');
+    style.id = 'gfm-to-pdf-style';
+    style.innerHTML = `
+      @media print {
+        body {
+          visibility: hidden;
+        }
 
-    preview.style.maxWidth = '980px';
-    preview.style.margin = '0 auto';
-    preview.style.padding = '50px';
-    preview.style.border = 'none';
-
-    document.body.innerHTML = preview.outerHTML;
+        article.markdown-body.entry-content {
+          visibility: visible !important;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
     window.print();
   }
 });
