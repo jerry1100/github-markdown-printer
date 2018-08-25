@@ -8,7 +8,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     preview.style.maxWidth = '980px';
     preview.style.margin = '0 auto';
     preview.style.padding = '50px';
-    preview.style.border = 0;
+    preview.style.border = 'none';
 
     document.body.innerHTML = preview.outerHTML;
     window.print();
