@@ -13,10 +13,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
         article.markdown-body.entry-content {
           position: absolute !important;
-          top: 0;
-          left: 0;
-          padding: 0;
-          border: none;
+          top: 0 !important;
+          left: 0 !important;
+          padding: 0 !important;
+          border: none !important;
         }
 
         article.markdown-body.entry-content * {
