@@ -5,7 +5,7 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
     chrome.declarativeContent.onPageChanged.addRules([{
       conditions: [new chrome.declarativeContent.PageStateMatcher({
-        pageUrl: { hostEquals: 'github.com' },
+        pageUrl: { hostContains: 'github' },
         css: ['article.markdown-body.entry-content'],
       })],
       actions: [new chrome.declarativeContent.ShowPageAction()],
