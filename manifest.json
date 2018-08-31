@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "GFM Printer",
+  "name": "GitHub Markdown Printer",
   "description": "Print GitHub Flavored Markdown exactly as it appears on GitHub",
   "version": "0.1",
   "background": {
@@ -11,7 +11,7 @@
   },
   "page_action": {
     "default_icon": "icon.png",
-    "default_title": "Print GFM"
+    "default_title": "Print Markdown"
   },
   "permissions": [
     "declarativeContent"
