@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "GitHub Markdown Printer",
-  "description": "Print GitHub Flavored Markdown exactly as it appears on GitHub",
+  "description": "Prints GitHub Flavored Markdown exactly as it appears on GitHub.",
   "version": "0.1",
   "background": {
     "scripts": [
