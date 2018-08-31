@@ -23,6 +23,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           visibility: visible !important;
         }
       }
+
+      @page {
+        size: auto;
+        margin: 54pt;
+      }
     `;
     document.head.appendChild(style);
     window.print();
