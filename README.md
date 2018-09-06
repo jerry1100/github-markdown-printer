@@ -1,6 +1,8 @@
 # github-markdown-printer
 Chrome extension to print GitHub Flavored Markdown exactly as it appears on GitHub. You can also save them as PDFs.
 
+Install it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/github-markdown-printer/fehpdlpmcegfpbkgcnaleindodeegapk).
+
 ![](demo.gif)
 
 ### Advantages over other markdown converters
