@@ -3,6 +3,7 @@
   "name": "GitHub Markdown Printer",
   "version": "0.1",
   "description": "Prints GitHub Flavored Markdown exactly as it appears on GitHub.",
+  "minimum_chrome_version": "33.0",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
