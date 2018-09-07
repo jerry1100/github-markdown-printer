@@ -22,6 +22,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         article.markdown-body.entry-content * {
           visibility: visible !important;
         }
+
+        article.markdown-body.entry-content pre {
+          white-space: pre-wrap !important;
+        }
       }
 
       @page {
