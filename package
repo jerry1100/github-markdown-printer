@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Packages the necessary files into a .zip archive
+
+files=(
+  "./manifest.json"
+  "./icons/*"
+  "./background.js"
+  "./content.js"
+)
+
+archive_name="$(basename $PWD).zip"
+
+zip -9 "$archive_name" ${files[*]}
+mv "$archive_name" ~/Desktop
