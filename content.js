@@ -3,38 +3,14 @@
  */
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.message === 'click') {
-    const style = document.createElement('style');
-    style.innerHTML = `
-      @media print {
-        body * {
-          visibility: hidden !important;
-          position: static !important;
-        }
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = chrome.runtime.getURL('style.css');
 
-        article.markdown-body.entry-content {
-          position: absolute !important;
-          top: 0 !important;
-          left: 0 !important;
-          padding: 0 !important;
-          border: none !important;
-        }
-
-        article.markdown-body.entry-content * {
-          visibility: visible !important;
-        }
-
-        article.markdown-body.entry-content pre {
-          white-space: pre-wrap !important;
-        }
-      }
-
-      @page {
-        size: auto;
-        margin: 54pt;
-      }
-    `;
-    document.head.appendChild(style);
-    window.print();
-    document.head.removeChild(style);
+    document.head.appendChild(link);
+    link.addEventListener('load', () => {
+      window.print();
+      document.head.removeChild(link);
+    });
   }
 });

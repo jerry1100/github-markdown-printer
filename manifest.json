@@ -36,5 +36,8 @@
         "content.js"
       ]
     }
+  ],
+  "web_accessible_resources": [
+    "style.css"
   ]
 }

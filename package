@@ -7,6 +7,7 @@ files=(
   "./icons/*"
   "./background.js"
   "./content.js"
+  "./style.css"
 )
 
 archive_name="$(basename $PWD).zip"
