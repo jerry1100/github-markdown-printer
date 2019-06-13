@@ -2,6 +2,8 @@
 #
 # Packages the necessary files into a .zip archive
 
+cd src
+
 files=(
   "./manifest.json"
   "./icons/*"
@@ -10,7 +12,7 @@ files=(
   "./style.css"
 )
 
-archive_name="$(basename $PWD).zip"
+archive_name="github-markdown-printer.zip"
 
 zip -9 "$archive_name" ${files[*]}
 mv "$archive_name" ~/Desktop
