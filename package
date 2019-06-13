@@ -12,7 +12,4 @@ files=(
   "./style.css"
 )
 
-archive_name="github-markdown-printer.zip"
-
-zip -9 "$archive_name" ${files[*]}
-mv "$archive_name" ~/Desktop
+zip -9 "../github-markdown-printer.zip" ${files[*]}
