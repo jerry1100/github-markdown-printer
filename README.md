@@ -3,7 +3,9 @@ Chrome extension to print GitHub Flavored Markdown exactly as it appears on GitH
 
 Install it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/github-markdown-printer/fehpdlpmcegfpbkgcnaleindodeegapk).
 
-![](demo.gif)
+<p align="center">
+  <img src="./demo.gif" height="450" />
+</p>
 
 ### Advantages over other markdown converters
 This is easier and faster than downloading the markdown file and running it through a converter. This also produces better results.
@@ -18,6 +20,8 @@ If you're experiencing an issue that isn't listed below, please [submit an issue
 
 ### Code blocks aren't shaded
 Make sure "Background graphics" are enabled in the print preview. To check, click "More settings" in the print preview, then look for "Background graphics".
+
+<img src="./background-graphics-setting.png" height="350" />
 
 ### Indentation is weird in code blocks
 Long pieces of code that doesn't fit within the page will be wrapped to the next line. This wrapping may mess up the indentation.
