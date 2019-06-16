@@ -24,4 +24,4 @@ Make sure "Background graphics" are enabled in the print preview. To check, clic
 <img src="./background-graphics-setting.png" height="350" />
 
 ### Indentation is weird in code blocks
-Long pieces of code that doesn't fit within the page will be wrapped to the next line. This wrapping may mess up the indentation.
+Long pieces of code that do not fit within the page will be wrapped to the next line. This wrapping may mess up the indentation.
