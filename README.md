@@ -4,7 +4,7 @@ Chrome extension to print GitHub Flavored Markdown exactly as it appears on GitH
 Install it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/github-markdown-printer/fehpdlpmcegfpbkgcnaleindodeegapk).
 
 <p align="center">
-  <img src="./demo.gif" height="450" />
+  <img src="./demo.gif" height="500" />
 </p>
 
 ### Advantages over other markdown converters
