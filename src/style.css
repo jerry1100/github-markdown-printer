@@ -1,4 +1,8 @@
 @media print {
+  div.position-relative {
+    position: static !important;
+  }
+
   body * {
     visibility: hidden !important;
     position: static !important;
