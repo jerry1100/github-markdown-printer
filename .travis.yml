@@ -1,0 +1,4 @@
+language: node_js
+script:
+  - echo "hello world"
+  - echo "goodbye cruel world"
