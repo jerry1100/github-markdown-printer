@@ -1,4 +1,4 @@
 .DS_Store
 *.zip
 node_modules
-/test/*.png
+/test/test-screenshot.png
