@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "pixelmatch": "^5.0.2",
+    "pngjs": "^3.4.0",
     "puppeteer": "^1.17.0"
   }
 }

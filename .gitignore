@@ -2,3 +2,4 @@
 *.zip
 node_modules
 /test/test-screenshot.png
+/test/screenshot-diff.png
