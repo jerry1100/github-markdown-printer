@@ -7,9 +7,12 @@ const TEST_SCREENSHOT_FILENAME = 'test-screenshot.png';
 const DIFF_SCREENSHOT_FILENAME = 'screenshot-diff.png';
 const referenceImage = PNG.sync.read(fs.readFileSync('./reference-screenshot.png'));
 
+let shouldReturnNonZeroExitCode = false;
+
 (async () => {
   await testURL('https://github.com/jerry1100/github-markdown-printer/tree/master/test');
   await testURL('https://github.com/jerry1100/github-markdown-printer/blob/master/test/README.md');
+  process.exit(shouldReturnNonZeroExitCode ? 1 : 0);
 })();
 
 async function testURL(url) {
@@ -17,7 +20,9 @@ async function testURL(url) {
 
   const numDiffPixels = await compareWithReference();
   if (numDiffPixels !== 0) {
-    throw new Error(`Test and reference screenshots have ${numDiffPixels} different pixels`);
+    console.log(`[Failed]: Rendered markdown at ${url} has ${numDiffPixels} different pixels`);
+    shouldReturnNonZeroExitCode = true;
+    return;
   }
 
   console.log(`[Passed]: Rendered markdown at ${url}`);

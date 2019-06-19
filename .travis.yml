@@ -1,4 +1,6 @@
 language: node_js
+before_script:
+  - cd test
+  - npm install
 script:
-  - echo "hello world"
-  - echo "goodbye cruel world"
+  - node test
