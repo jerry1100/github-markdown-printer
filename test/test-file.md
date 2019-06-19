@@ -12,6 +12,8 @@ const greeting = 'Hello';
 function greetPerson(name) {
   return `${greeting} ${name}.`; // inline comment
 }
+
+const reallyLongFunctionNameToTestLineWrapping = reallyLongParameterNameToTestLineWrapping => console.log(`Hello ${reallyLongParameterNameToTestLineWrapping}`);
 ```
 
 ### Image
