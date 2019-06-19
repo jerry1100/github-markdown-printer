@@ -17,4 +17,4 @@ const reallyLongFunctionNameToTestLineWrapping = reallyLongParameterNameToTestLi
 ```
 
 ### Image
-<img src="./test-image.png" height="300" />
+<img src="./image.png" height="300" />
