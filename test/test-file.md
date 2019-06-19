@@ -15,4 +15,4 @@ function greetPerson(name) {
 ```
 
 ### Image
-![](test-image.png)
+<img src="./test-image.png" height="350" />
