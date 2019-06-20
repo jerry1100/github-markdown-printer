@@ -12,7 +12,7 @@ let shouldReturnNonZeroExitCode = false;
 (async () => {
   await testURL('https://github.com/jerry1100/github-markdown-printer/tree/master/test');
   await testURL('https://github.com/jerry1100/github-markdown-printer/blob/master/test/README.md');
-  // process.exit(shouldReturnNonZeroExitCode ? 1 : 0);
+  process.exit(shouldReturnNonZeroExitCode ? 1 : 0);
 })();
 
 async function testURL(url) {
