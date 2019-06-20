@@ -3,6 +3,8 @@ node_js: node
 dist: xenial
 notifications:
   email:
+    recipients:
+      - jwu1100@gmail.com
     on_success: always
     on_failure: always
 services:
