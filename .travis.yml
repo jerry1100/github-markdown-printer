@@ -1,6 +1,6 @@
 language: node_js
 node_js: node
-dist: xenial
+dist: osx
 deploy:
   provider: releases
   api_key: $API_KEY
@@ -9,8 +9,6 @@ deploy:
     - ./reference-screenshot.png
   skip_cleanup: true
   draft: true
-services:
-  - xvfb
 before_script:
   - cd test
   - npm install
