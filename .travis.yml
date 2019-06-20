@@ -1,6 +1,10 @@
 language: node_js
 node_js: node
 dist: xenial
+notifications:
+  email:
+    on_success: always
+    on_failure: always
 services:
   - xvfb
 before_script:
