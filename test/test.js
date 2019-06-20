@@ -35,6 +35,8 @@ async function takeScreenshot(url) {
   await page.goto(url);
   await page.addStyleTag({ path: '../src/style.css' });
   await page.emulateMedia('print');
+  console.log('Waiting...');
+  await new Promise(resolve => setTimeout(resolve, 5000));
   await page.screenshot({ path: TEST_SCREENSHOT_FILENAME });
   await browser.close();
 }
