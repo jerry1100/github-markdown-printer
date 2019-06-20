@@ -1,4 +1,5 @@
-# github-markdown-printer
+# github-markdown-printer [![Build Status](https://travis-ci.org/jerry1100/github-markdown-printer.svg?branch=master)](https://travis-ci.org/jerry1100/github-markdown-printer)
+
 Chrome extension to print GitHub Flavored Markdown exactly as it appears on GitHub. You can also save them as PDFs.
 
 Install it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/github-markdown-printer/fehpdlpmcegfpbkgcnaleindodeegapk).
