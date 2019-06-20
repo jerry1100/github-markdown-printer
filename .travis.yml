@@ -1,6 +1,14 @@
 language: node_js
 node_js: node
 dist: xenial
+deploy:
+  provider: releases
+  api_key: $API_KEY
+  file:
+    - ./test/test-screenshot.png
+    - ./test/reference-screenshot.png
+  skip_cleanup: true
+  draft: true
 services:
   - xvfb
 before_script:
