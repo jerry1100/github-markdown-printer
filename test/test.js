@@ -10,9 +10,15 @@ const referenceImage = PNG.sync.read(fs.readFileSync('./reference-screenshot.png
 let shouldReturnNonZeroExitCode = false;
 
 (async () => {
-  await testURL('https://github.com/jerry1100/github-markdown-printer/tree/master/test');
-  await testURL('https://github.com/jerry1100/github-markdown-printer/blob/master/test/README.md');
-  process.exit(shouldReturnNonZeroExitCode ? 1 : 0);
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.setViewport({ width: 1200, height: 800 });
+  await page.goto('https://github.com/jerry1100/github-markdown-printer/tree/master/test');
+  console.log(await page.title());
+  await browser.close();
+  // await testURL('https://github.com/jerry1100/github-markdown-printer/tree/master/test');
+  // await testURL('https://github.com/jerry1100/github-markdown-printer/blob/master/test/README.md');
+  // process.exit(shouldReturnNonZeroExitCode ? 1 : 0);
 })();
 
 async function testURL(url) {
