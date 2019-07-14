@@ -22,7 +22,7 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "test/package.json" }}
-      - run: node test/test.js
+      - run: cd test && node test.js
       - store_artifacts:
           path: test/reference-screenshot.png
       - store_artifacts:
