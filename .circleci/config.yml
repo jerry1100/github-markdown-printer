@@ -8,6 +8,8 @@ workflows:
 
 jobs:
   test:
+    docker:
+      - image: circleci/node:latest-browsers
     working_directory: ~/github-markdown-printer/test
     steps:
       - checkout
