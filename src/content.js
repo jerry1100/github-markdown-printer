@@ -1,6 +1,4 @@
-/**
- * Listen for the 'click' message, then strip!
- */
+// Listen for "click" messages from the background script, then perform action
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.message === 'click') {
     const link = document.createElement('link');

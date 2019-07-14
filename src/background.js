@@ -1,6 +1,4 @@
-/**
- * Enables the page action when the conditions are met
- */
+// Show the extension icon when certain conditions are met
 chrome.runtime.onInstalled.addListener(() => {
   chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
     chrome.declarativeContent.onPageChanged.addRules([{
@@ -13,9 +11,7 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-/**
- * When the extension icon is clicked, send the current tab a message
- */
+// When the extension is clicked, send the current tab a "click" message
 chrome.pageAction.onClicked.addListener(tab => {
   chrome.tabs.sendMessage(tab.id, { message: 'click' });
 });
