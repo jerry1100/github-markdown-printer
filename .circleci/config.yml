@@ -35,3 +35,12 @@ jobs:
 
       # run tests!
       - run: cd test && node test.js
+
+      - store_artifacts:
+          path: test/reference-screenshot.png
+
+      - store_artifacts:
+          path: test/test-screenshot.png
+
+      - store_artifacts:
+          path: test/screenshot-diff.png
