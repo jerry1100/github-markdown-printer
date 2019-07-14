@@ -3,9 +3,12 @@ const { PNG } = require('pngjs');
 const pixelMatch = require('pixelmatch');
 const puppeteer = require('puppeteer');
 
-const TEST_SCREENSHOT_FILENAME = 'test-screenshot.png';
-const DIFF_SCREENSHOT_FILENAME = 'screenshot-diff.png';
-const referenceImage = PNG.sync.read(fs.readFileSync('./reference-screenshot.png'));
+const SCREENSHOTS_DIR = path.join(__dirname, 'screenshots');
+const REF_SCREENSHOT_PATH = path.join(SCREENSHOTS_DIR, 'ref.png');
+const TEST_SCREENSHOT_PATH = path.join(SCREENSHOTS_DIR, 'test.png');
+const DIFF_SCREENSHOT_PATH = path.join(SCREENSHOTS_DIR, 'diff.png');
+
+const referenceImage = PNG.sync.read(REF_SCREENSHOT_PATH);
 
 let shouldReturnNonZeroExitCode = false;
 
@@ -41,16 +44,16 @@ async function takeScreenshot(url) {
   await page.goto(url);
   await page.addStyleTag({ path: '../src/style.css' });
   await page.emulateMedia('print');
-  await page.screenshot({ path: TEST_SCREENSHOT_FILENAME });
+  await page.screenshot({ path: TEST_SCREENSHOT_PATH });
   await browser.close();
 }
 
 async function compareWithReference() {
-  const testImage = PNG.sync.read(fs.readFileSync(TEST_SCREENSHOT_FILENAME));
+  const testImage = PNG.sync.read(fs.readFileSync(TEST_SCREENSHOT_PATH));
   const { width, height } = testImage;
   const diff = new PNG({ width, height });
   const numDiffPixels = pixelMatch(referenceImage.data, testImage.data, diff.data, width, height);
-  fs.writeFileSync(DIFF_SCREENSHOT_FILENAME, PNG.sync.write(diff));
+  fs.writeFileSync(DIFF_SCREENSHOT_PATH, PNG.sync.write(diff));
 
   return numDiffPixels;
 }
