@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const { PNG } = require('pngjs');
 const pixelMatch = require('pixelmatch');
 const puppeteer = require('puppeteer');
