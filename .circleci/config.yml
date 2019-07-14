@@ -28,7 +28,7 @@ jobs:
       - run: node test/test.js
       - store_artifacts:
           path: test/screenshots
-          destination: /test
+          destination: /
       - save_cache:
           paths:
             - node_modules
