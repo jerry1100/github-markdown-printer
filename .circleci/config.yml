@@ -15,21 +15,6 @@ workflows:
     jobs:
       - test
 
-workflows:
-  version: 2
-  test:
-    jobs:
-      - test
-  daily:
-    jobs:
-      - test
-    triggers:
-      - schedule:
-        cron: "* * * * *"
-        filters:
-          branches:
-            only: master
-
 jobs:
   test:
     docker:
