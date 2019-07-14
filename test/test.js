@@ -43,7 +43,7 @@ async function takeScreenshot(url) {
   const page = await browser.newPage();
   await page.setViewport({ width: 1200, height: 800 });
   await page.goto(url);
-  await page.addStyleTag({ path: '../src/style.css' });
+  await page.addStyleTag({ path: path.join(__dirname, '..', 'src', 'styles.css') });
   await page.emulateMedia('print');
   await page.screenshot({ path: TEST_SCREENSHOT_PATH });
   await browser.close();
