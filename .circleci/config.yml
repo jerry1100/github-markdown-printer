@@ -19,6 +19,8 @@ jobs:
     steps:
       - checkout
 
+      - run: cd test
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -34,4 +36,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: node test/test.js
+      - run: node test.js
