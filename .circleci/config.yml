@@ -5,6 +5,10 @@ workflows:
   test:
     jobs:
       - test
+  daily:
+    triggers:
+      - schedule:
+        cron: "* * * * *"
 
 jobs:
   test:
