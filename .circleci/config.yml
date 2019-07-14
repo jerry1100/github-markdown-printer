@@ -10,6 +10,8 @@ jobs:
   test:
     docker:
       - image: circleci/node:latest-browsers
+    environment:
+      PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
     steps:
       - checkout
       - restore_cache:
