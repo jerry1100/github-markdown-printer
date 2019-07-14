@@ -9,7 +9,7 @@ const REF_SCREENSHOT_PATH = path.join(SCREENSHOTS_DIR, 'ref.png');
 const TEST_SCREENSHOT_PATH = path.join(SCREENSHOTS_DIR, 'test.png');
 const DIFF_SCREENSHOT_PATH = path.join(SCREENSHOTS_DIR, 'diff.png');
 
-const referenceImage = PNG.sync.read(REF_SCREENSHOT_PATH);
+const referenceImage = PNG.sync.read(fs.readFileSync(REF_SCREENSHOT_PATH));
 
 let shouldReturnNonZeroExitCode = false;
 
@@ -43,7 +43,7 @@ async function takeScreenshot(url) {
   const page = await browser.newPage();
   await page.setViewport({ width: 1200, height: 800 });
   await page.goto(url);
-  await page.addStyleTag({ path: path.join(__dirname, '..', 'src', 'styles.css') });
+  await page.addStyleTag({ path: path.join(__dirname, '..', 'src', 'style.css') });
   await page.emulateMedia('print');
   await page.screenshot({ path: TEST_SCREENSHOT_PATH });
   await browser.close();
