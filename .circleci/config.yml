@@ -21,14 +21,7 @@ jobs:
       - image: circleci/node:latest-browsers
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "test/package.json" }}
       - run: cd test && npm install
       - run: node test/test.js
       - store_artifacts:
           path: test/screenshots
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "test/package.json" }}
