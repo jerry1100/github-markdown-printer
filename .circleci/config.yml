@@ -2,6 +2,21 @@ version: 2
 
 workflows:
   version: 2
+  commit-workflow:
+    jobs:
+      - test 
+  scheduled-workflow:
+    triggers:
+      - schedule:
+          cron: "* * * * *"
+          filters:
+            branches:
+              only: master
+    jobs:
+      - test
+
+workflows:
+  version: 2
   test:
     jobs:
       - test
