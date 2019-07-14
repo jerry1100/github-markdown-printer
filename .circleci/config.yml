@@ -1,25 +1,30 @@
 version: 2
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
+
 jobs:
-  build:
-    docker:
-      - image: circleci/node:latest-browsers
-    working_directory: ~/repo
+  test:
+    working_directory: ~/github-markdown-printer/test
     steps:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "test/package.json" }}
+            - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-      - run: cd test && npm install
+      - run: npm install
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "test/package.json" }}
-      - run: cd test && node test.js
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: node test.js
       - store_artifacts:
-          path: test/reference-screenshot.png
+          path: reference-screenshot.png
       - store_artifacts:
-          path: test/test-screenshot.png
+          path: test-screenshot.png
       - store_artifacts:
-          path: test/screenshot-diff.png
+          path: screenshot-diff.png
