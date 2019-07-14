@@ -4,11 +4,11 @@ workflows:
   version: 2
   commit-workflow:
     jobs:
-      - test 
+      - test
   scheduled-workflow:
     triggers:
       - schedule:
-          cron: "* * * * *"
+          cron: "0 1 * * *"
           filters:
             branches:
               only: master
