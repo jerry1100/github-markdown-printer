@@ -6,7 +6,7 @@ cd src
 
 files=(
   "./manifest.json"
-  "./icons/*"
+  "./icons/*.png"
   "./background.js"
   "./content.js"
   "./style.css"
