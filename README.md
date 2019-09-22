@@ -1,11 +1,11 @@
 # github-markdown-printer [![CircleCI](https://circleci.com/gh/jerry1100/github-markdown-printer.svg?style=svg)](https://circleci.com/gh/jerry1100/github-markdown-printer)
 
-Chrome extension to print GitHub Flavored Markdown exactly as it appears on GitHub. You can also save them as PDFs.
+Chrome extension to print GitHub Flavored Markdown *exactly* as it appears on GitHub, with just two clicks.
 
-Install it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/github-markdown-printer/fehpdlpmcegfpbkgcnaleindodeegapk).
+Get it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/github-markdown-printer/fehpdlpmcegfpbkgcnaleindodeegapk).
 
 <p align="center">
-  <img src="./img/demo.gif" height="500" alt="GitHub Markdown Printer demo" />
+  <img src="./img/demo.png" height="600" alt="GitHub Markdown Printer demo image" />
 </p>
 
 ### Advantages over other markdown converters
