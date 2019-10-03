@@ -11,6 +11,7 @@
   }
 
   /* Positions markdown content at the top of the page */
+  #wiki-body > .markdown-body,
   article.markdown-body.entry-content {
     position: absolute !important;
     top: 0 !important;
@@ -20,11 +21,13 @@
   }
 
   /* Makes markdown content visible */
+  #wiki-body > .markdown-body *,
   article.markdown-body.entry-content * {
     visibility: visible !important;
   }
 
   /* Wraps long lines of code */
+  #wiki-body > .markdown-body pre,
   article.markdown-body.entry-content pre {
     white-space: pre-wrap !important;
   }
