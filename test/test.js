@@ -17,6 +17,7 @@ let shouldReturnNonZeroExitCode = false;
   try {
     await testURL('https://github.com/jerry1100/github-markdown-printer/tree/master/test');
     await testURL('https://github.com/jerry1100/github-markdown-printer/blob/master/test/README.md');
+    await testURL('https://github.com/jerry1100/github-markdown-printer/wiki');
   } catch (e) {
     console.error(e);
     process.exit(1);
