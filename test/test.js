@@ -15,9 +15,9 @@ let shouldReturnNonZeroExitCode = false;
 
 (async () => {
   try {
-    await testURL('https://github.com/jerry1100/github-markdown-printer/tree/master/test');
+    //await testURL('https://github.com/jerry1100/github-markdown-printer/tree/master/test');
     await testURL('https://github.com/jerry1100/github-markdown-printer/blob/master/test/README.md');
-    await testURL('https://github.com/jerry1100/github-markdown-printer/wiki');
+    //await testURL('https://github.com/jerry1100/github-markdown-printer/wiki');
   } catch (e) {
     console.error(e);
     process.exit(1);
@@ -33,6 +33,7 @@ async function testURL(url) {
   if (numDiffPixels !== 0) {
     console.log(`[Failed]: Rendered markdown at ${url} has ${numDiffPixels} different pixels`);
     shouldReturnNonZeroExitCode = true;
+
     return;
   }
 
@@ -42,6 +43,7 @@ async function testURL(url) {
 async function takeScreenshot(url) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
+
   await page.setViewport({ width: 1200, height: 800 });
   await page.goto(url);
   await page.addStyleTag({ path: path.join(__dirname, '..', 'src', 'style.css') });
@@ -55,6 +57,7 @@ async function compareWithReference() {
   const { width, height } = testImage;
   const diff = new PNG({ width, height });
   const numDiffPixels = pixelMatch(referenceImage.data, testImage.data, diff.data, width, height);
+
   fs.writeFileSync(DIFF_SCREENSHOT_PATH, PNG.sync.write(diff));
 
   return numDiffPixels;
