@@ -4,13 +4,13 @@
 ### Code block
 ```javascript
 // Line comment
-const greeting = 'Hello';
+const foo = 'bar';
 
 /**
  * Block comment
  */
 function greetPerson(name) {
-  return `${greeting} ${name}.`; // inline comment
+  return `Hello ${name}.`; // inline comment
 }
 
 const reallyLongFunctionNameToTestLineWrapping = reallyLongParameterNameToTestLineWrapping => console.log(`Hello ${reallyLongParameterNameToTestLineWrapping}`);
