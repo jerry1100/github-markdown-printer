@@ -9,11 +9,17 @@ const testCases = [
 ];
 
 (async () => {
-  const testResults = await testCases.map(async ({ testName, urlToTest }) => await tryRunTest(testName, urlToTest));
+  const testResults = await getTestResults(testCases);
   const didTestsPass = testResults.every(didPass => didPass);
 
   process.exit(didTestsPass ? 0 : 1);
 })();
+
+async function getTestResults(testCases) {
+  const results = testCases.map(async ({ testName, urlToTest }) => await tryRunTest(testName, urlToTest));
+
+  return await Promise.all(results);
+}
 
 async function tryRunTest(testName, urlToTest) {
   try {
