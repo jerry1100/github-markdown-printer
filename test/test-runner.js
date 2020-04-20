@@ -7,14 +7,18 @@ const pixelMatch = require('pixelmatch');
 const SCREENSHOTS_DIR = path.join(__dirname, 'screenshots');
 const STYLE_CSS_PATH = path.join(__dirname, '..', 'src', 'style.css');
 
+if (!fs.existsSync(SCREENSHOTS_DIR)) {
+  fs.mkdirSync(SCREENSHOTS_DIR);
+}
+
 class TestRunner {
   constructor(testName, urlToTest) {
-    const baseScreenshotName = testName.toLowerCase().replace(/\s+/g, '-');
+    this.urlToTest = urlToTest;
 
+    const baseScreenshotName = testName.toLowerCase().replace(/\s+/g, '-');
     this.expectedScreenshotPath = path.join(SCREENSHOTS_DIR, `${baseScreenshotName}-expected.png`);
     this.actualScreenshotPath = path.join(SCREENSHOTS_DIR, `${baseScreenshotName}-actual.png`);
     this.diffScreenshotPath = path.join(SCREENSHOTS_DIR, `${baseScreenshotName}-diff.png`);
-    this.urlToTest = urlToTest;
   }
 
   async takeScreenshotAndSaveToFs() {
