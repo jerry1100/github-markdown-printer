@@ -2,7 +2,7 @@ const TestCase = require('./test-case');
 const TestRunner = require('./test-runner');
 
 const testCases = [
-  new TestCase('project root', 'https://github.com/jerry1100/github-markdown-printer'),
+  new TestCase('project root', 'https://github.com/torvalds/linux'),
   new TestCase('folder root', 'https://github.com/jerry1100/github-markdown-printer/tree/master/test/sample'),
   new TestCase('readme file', 'https://github.com/jerry1100/github-markdown-printer/blob/master/test/sample/README.md'),
   new TestCase('wiki', 'https://github.com/jerry1100/github-markdown-printer/wiki'),
