@@ -1,6 +1,6 @@
 # github-markdown-printer [![CircleCI](https://circleci.com/gh/jerry1100/github-markdown-printer.svg?style=svg)](https://circleci.com/gh/jerry1100/github-markdown-printer)
 
-Chrome/Edge extension to print GitHub Flavored Markdown *exactly* as it appears on GitHub, with just two clicks.
+Print GitHub Flavored Markdown *exactly* as it appears on GitHub, with just two clicks.
 
 Get it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/github-markdown-printer/fehpdlpmcegfpbkgcnaleindodeegapk) or the [Edge Web Store](https://microsoftedge.microsoft.com/addons/detail/github-markdown-printer/njdhaokfdmnighagdlhbfpkmcgojljcl).
 
