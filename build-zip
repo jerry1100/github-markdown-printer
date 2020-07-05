@@ -2,14 +2,4 @@
 #
 # Packages the necessary files into a .zip archive
 
-cd src
-
-files=(
-  "./manifest.json"
-  "./icons/*.png"
-  "./background.js"
-  "./content.js"
-  "./style.css"
-)
-
-zip -9 "../github-markdown-printer.zip" ${files[*]}
+zip -9 github-markdown-printer.zip src/*
