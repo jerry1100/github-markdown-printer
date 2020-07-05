@@ -4,9 +4,7 @@ Chrome/Edge extension to print GitHub Flavored Markdown *exactly* as it appears 
 
 Get it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/github-markdown-printer/fehpdlpmcegfpbkgcnaleindodeegapk) or the [Edge Web Store](https://microsoftedge.microsoft.com/addons/detail/github-markdown-printer/njdhaokfdmnighagdlhbfpkmcgojljcl).
 
-<p align="center">
-  <img src="./img/demo.png" height="600" alt="GitHub Markdown Printer demo image" />
-</p>
+![GitHub Markdown Printer demo image](./img/demo.png)
 
 ### Advantages over other markdown converters
 This is easier and faster than downloading the markdown file and running it through a converter. This also produces better results.
