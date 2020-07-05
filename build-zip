@@ -1,5 +1,13 @@
-#!/bin/bash
+#!/bin/bash -e
 #
-# Packages the necessary files into a .zip archive
+# Packages the src files into a .zip archive
 
-zip -9 github-markdown-printer.zip src/*
+package_name="$(basename $(git rev-parse --show-toplevel)).zip"
+
+if [[ "$OS" == "Windows_NT" ]]; then
+    powershell "Compress-Archive src/* ${package_name}"
+else
+    zip -9 "${package_name}" src/*
+fi
+
+echo "Created ${package_name}"
