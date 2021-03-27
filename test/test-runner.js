@@ -28,11 +28,16 @@ class TestRunner {
     await page.setViewport({ width: 1200, height: 800 });
     await page.goto(this.urlToTest);
     await page.addStyleTag({ path: STYLE_CSS_PATH });
+    await page.evaluate(this.replaceBodyHtmlWithMarkdown);
     await page.emulateMediaType('print');
     await page.screenshot({ path: this.actualScreenshotPath });
     await browser.close();
 
     return this.actualScreenshotPath;;
+  }
+
+  async replaceBodyHtmlWithMarkdown() {
+    document.body.innerHTML = document.querySelector('.markdown-body').outerHTML;
   }
 
   async doesScreenshotMatchExpectedAndGenerateDiff(actualScreenshotPath) {
