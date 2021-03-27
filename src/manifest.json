@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "GitHub Markdown Printer",
-  "version": "0.5",
+  "version": "0.6",
   "description": "Print GitHub Flavored Markdown exactly as it appears on GitHub, with just two clicks.",
   "minimum_chrome_version": "33.0",
   "homepage_url": "https://github.com/jerry1100/github-markdown-printer",
