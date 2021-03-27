@@ -7,7 +7,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     document.head.appendChild(link);
     link.addEventListener('load', () => {
+      const bodyHtml = document.body.innerHTML;
+      const markdownHtml = document.querySelector('.markdown-body').outerHTML;
+
+      // Have markdown content occupy entire page
+      document.body.innerHTML = markdownHtml;
       window.print();
+
+      // Clean up - revert to original
+      document.body.innerHTML = bodyHtml;
       document.head.removeChild(link);
     });
   }

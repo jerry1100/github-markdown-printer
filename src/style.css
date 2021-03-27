@@ -1,36 +1,6 @@
-@media print {
-  /* Overrides relative positioning style that messes up the layout on non-root pages */
-  div.position-relative {
-    position: static !important;
-  }
-
-  /* Hides everything and positions them as part of the normal document flow */
-  body * {
-    visibility: hidden !important;
-    position: static !important;
-  }
-
-  /* Positions markdown content at the top of the page */
-  #wiki-body > .markdown-body,
-  article.markdown-body.entry-content {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-  }
-
-  /* Makes markdown content visible */
-  #wiki-body > .markdown-body *,
-  article.markdown-body.entry-content * {
-    visibility: visible !important;
-  }
-
-  /* Wraps long lines of code */
-  #wiki-body > .markdown-body pre,
-  article.markdown-body.entry-content pre {
-    white-space: pre-wrap !important;
-  }
+/* Wraps long lines of code */
+pre {
+  white-space: pre-wrap !important;
 }
 
 @page {
