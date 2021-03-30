@@ -7,7 +7,7 @@ package_name="$(basename $(git rev-parse --show-toplevel)).zip"
 if [[ "$OS" == "Windows_NT" ]]; then
     powershell "Compress-Archive src/* ${package_name}"
 else
-    zip -9 "${package_name}" src/*
+    cd src && zip -r -9 "../${package_name}" *
 fi
 
 echo "Created ${package_name}"
