@@ -14,8 +14,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - run: cd test
-
       - name: Set up node
         uses: actions/setup-node@v2
         with:
@@ -24,7 +22,7 @@ jobs:
           cache-dependency-path: test/package-lock.json
 
       - name: Install dependencies
-        run: npm ci
+        run: cd test && npm ci
 
       - name: Run test
         run: npm test
