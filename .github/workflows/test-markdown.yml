@@ -17,7 +17,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@v2
         with:
-          node-version: 16.x
+          node-version: 14
           cache: "npm"
           cache-dependency-path: test/package-lock.json
 
@@ -25,7 +25,7 @@ jobs:
         run: cd test && npm ci
 
       - name: Run test
-        run: npm test
+        run: cd test && npm test
 
       - name: Upload results
         uses: actions/upload-artifact@v2
