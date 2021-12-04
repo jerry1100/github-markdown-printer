@@ -6,6 +6,12 @@ chrome.action.onClicked.addListener((tab) => {
 });
 
 function printPage() {
+    const markdownBody = document.querySelector(".markdown-body");
+
+    if (!markdownBody) {
+        return;
+    }
+
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = chrome.runtime.getURL("style.css");
@@ -13,7 +19,7 @@ function printPage() {
     document.head.appendChild(link);
     link.addEventListener("load", () => {
         const bodyHtml = document.body.innerHTML;
-        const markdownHtml = document.querySelector(".markdown-body").outerHTML;
+        const markdownHtml = markdownBody.outerHTML;
         const theme = document.documentElement.dataset.colorMode;
 
         // Have markdown content occupy entire page
