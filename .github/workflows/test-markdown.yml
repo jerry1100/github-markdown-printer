@@ -1,4 +1,4 @@
-name: Test markdown
+name: test
 
 on:
   push:
