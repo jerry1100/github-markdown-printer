@@ -7,12 +7,14 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  test-markdown:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+
+      - run: cd test
 
       - name: Set up node
         uses: actions/setup-node@v2
@@ -21,7 +23,7 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: cd test && npm ci
+        run: npm ci
 
       - name: Run test
         run: npm test
