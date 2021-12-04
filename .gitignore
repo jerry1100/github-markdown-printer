@@ -1,5 +1,5 @@
 .DS_Store
 *.zip
 node_modules
-/test/test-screenshot.png
-/test/screenshot-diff.png
+test/screenshots/*-actual.png
+test/screenshots/*-diff.png
