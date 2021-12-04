@@ -28,7 +28,7 @@ jobs:
         run: cd test && npm test
 
       - name: Upload results
-        if: always()
+        if: failure()
         uses: actions/upload-artifact@v2
         with:
           name: test-results
