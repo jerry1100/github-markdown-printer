@@ -1,0 +1,33 @@
+name: Test markdown
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Set up node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: "npm"
+
+      - name: Install dependencies
+        run: cd test && npm ci
+
+      - name: Run test
+        run: npm test
+
+      - name: Upload results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: test/screenshots/

@@ -1,7 +1,10 @@
 {
-  "dependencies": {
-    "pixelmatch": "^5.0.2",
-    "pngjs": "^3.4.0",
-    "puppeteer": "^3.0.0"
-  }
+    "scripts": {
+        "test": "node test"
+    },
+    "dependencies": {
+        "pixelmatch": "^5.0.2",
+        "pngjs": "^3.4.0",
+        "puppeteer": "^3.0.0"
+    }
 }
