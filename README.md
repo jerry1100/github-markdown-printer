@@ -26,7 +26,7 @@ If you're experiencing an issue that isn't listed below, please [submit an issue
 
 Make sure "Background graphics" are enabled in the print preview. To check, click "More settings" in the print preview, then look for "Background graphics".
 
-<img src="./img/background-graphics.png" height="350" alt="Background graphics setting" />
+<img src="./img/graphics.png" height="350" alt="Background graphics setting" />
 
 ### Indentation is weird in code blocks
 
