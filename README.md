@@ -12,9 +12,11 @@ This is easier and faster than downloading the markdown file and running it thro
 
 ## Usage
 
-1. Go to any page on GitHub where a markdown preview is visible.
-2. Click on the GMP icon which will open the print dialog with a print preview.
-3. Select your printer or save as PDF and print.
+![GitHub Markdown Printer usage](./img/usage.png)
+
+1. Go to any page on GitHub where there's a markdown preview
+2. Right-click the page and select "Print GitHub Markdown"
+3. Select your printer or save as PDF and print
 
 ## Troubleshooting
 
