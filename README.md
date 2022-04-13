@@ -4,7 +4,7 @@ Print GitHub Flavored Markdown _exactly_ as it appears on GitHub, with just two 
 
 Get it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/github-markdown-printer/fehpdlpmcegfpbkgcnaleindodeegapk) or the [Edge Web Store](https://microsoftedge.microsoft.com/addons/detail/github-markdown-printer/njdhaokfdmnighagdlhbfpkmcgojljcl).
 
-![GitHub Markdown Printer demo image](./img/demo.png)
+![GitHub Markdown Printer demo image](./img/preview.png)
 
 ### Advantages over other markdown converters
 
@@ -12,11 +12,11 @@ This is easier and faster than downloading the markdown file and running it thro
 
 ## Usage
 
-![GitHub Markdown Printer usage](./img/usage.png)
-
 1. Go to any page on GitHub where there's a markdown preview
 2. Right-click the page and select "Print GitHub Markdown"
 3. Select your printer or save as PDF and print
+
+![GitHub Markdown Printer usage](./img/usage.png)
 
 ## Troubleshooting
 
