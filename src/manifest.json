@@ -20,7 +20,7 @@
     "background": {
         "service_worker": "background.js"
     },
-    "permissions": ["activeTab", "scripting"],
+    "permissions": ["activeTab", "scripting", "contextMenus"],
     "web_accessible_resources": [
         {
             "resources": ["style.css"],

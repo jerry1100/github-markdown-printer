@@ -1,9 +1,29 @@
+const GITHUB_MARKDOWN_PRINTER = "GITHUB_MARKDOWN_PRINTER";
+
+// Respond to clicks on the extension icon
 chrome.action.onClicked.addListener((tab) => {
+    printPageForTab(tab.id);
+});
+
+// Create context menu
+chrome.contextMenus.create({
+    title: "Print GitHub Markdown",
+    id: GITHUB_MARKDOWN_PRINTER,
+});
+
+// Respond to context menu clicks
+chrome.contextMenus.onClicked.addListener((clickInfo, tab) => {
+    if (clickInfo.menuItemId === GITHUB_MARKDOWN_PRINTER) {
+        printPageForTab(tab.id);
+    }
+});
+
+function printPageForTab(tabId) {
     chrome.scripting.executeScript({
-        target: { tabId: tab.id },
+        target: { tabId },
         function: printPage,
     });
-});
+}
 
 function printPage() {
     const markdownBody = document.querySelector(".markdown-body");
