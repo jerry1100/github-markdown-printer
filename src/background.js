@@ -37,7 +37,7 @@ function printPage() {
     link.href = chrome.runtime.getURL("style.css");
 
     document.head.appendChild(link);
-    link.addEventListener("load", () => {
+    link.addEventListener("load", async () => {
         const bodyHtml = document.body.innerHTML;
         const markdownHtml = markdownBody.outerHTML;
         const theme = document.documentElement.dataset.colorMode;
@@ -47,6 +47,11 @@ function printPage() {
 
         // Have markdown content occupy entire page
         document.body.innerHTML = markdownHtml;
+
+        // Wait for any mermaid diagrams to load
+        if (document.querySelector("iframe")) {
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+        }
 
         window.print();
 
