@@ -42,11 +42,11 @@ function printPage() {
         const markdownHtml = markdownBody.outerHTML;
         const theme = document.documentElement.dataset.colorMode;
 
-        // Have markdown content occupy entire page
-        document.body.innerHTML = markdownHtml;
-
         // Use light theme or else text contrast is bad
         document.documentElement.dataset.colorMode = "light";
+
+        // Have markdown content occupy entire page
+        document.body.innerHTML = markdownHtml;
 
         window.print();
 
