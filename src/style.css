@@ -7,3 +7,18 @@ pre {
   size: auto;
   margin: 54pt;
 }
+
+/*
+Mermaid diagrams (or iframes in general) aren't positioned well when printed.
+The space reserved for the diagram is normal, but for some reason the diagram
+is shifted so that it starts on the next page. It seems this is done to prevent
+the diagram from getting split by the page boundary. Unfortunately, this results
+in the diagram overlapping with other content below. Add a red border to see this.
+*/
+section[data-type="mermaid"] {
+  /* In case of overlap, this allows you to see the content behind the diagram */
+  position: static !important;
+
+  /* Extra spacing for diagrams to prevent overlap, doesn't work for long diagrams */
+  margin-bottom: 225px !important;
+}

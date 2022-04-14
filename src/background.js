@@ -50,7 +50,7 @@ function printPage() {
 
         // Wait for any mermaid diagrams to load
         if (document.querySelector("iframe")) {
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            await new Promise((resolve) => setTimeout(resolve, 1500));
         }
 
         window.print();
