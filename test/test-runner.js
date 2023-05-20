@@ -16,15 +16,24 @@ class TestRunner {
     this.urlToTest = urlToTest;
 
     const baseScreenshotName = testName.toLowerCase().replace(/\s+/g, '-');
-    this.expectedScreenshotPath = path.join(SCREENSHOTS_DIR, `${baseScreenshotName}-expected.png`);
-    this.actualScreenshotPath = path.join(SCREENSHOTS_DIR, `${baseScreenshotName}-actual.png`);
-    this.diffScreenshotPath = path.join(SCREENSHOTS_DIR, `${baseScreenshotName}-diff.png`);
+    this.expectedScreenshotPath = path.join(
+      SCREENSHOTS_DIR,
+      `${baseScreenshotName}-expected.png`
+    );
+    this.actualScreenshotPath = path.join(
+      SCREENSHOTS_DIR,
+      `${baseScreenshotName}-actual.png`
+    );
+    this.diffScreenshotPath = path.join(
+      SCREENSHOTS_DIR,
+      `${baseScreenshotName}-diff.png`
+    );
   }
 
   async takeScreenshotAndSaveToFs() {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-  
+
     await page.setViewport({ width: 1200, height: 800 });
     await page.goto(this.urlToTest);
     await page.addStyleTag({ path: STYLE_CSS_PATH });
@@ -33,17 +42,23 @@ class TestRunner {
     await page.screenshot({ path: this.actualScreenshotPath });
     await browser.close();
 
-    return this.actualScreenshotPath;;
+    return this.actualScreenshotPath;
   }
 
   async replaceBodyHtmlWithMarkdown() {
-    document.body.innerHTML = document.querySelector('.markdown-body').outerHTML;
+    document.body.innerHTML =
+      document.querySelector('.markdown-body').outerHTML;
   }
 
   async doesScreenshotMatchExpectedAndGenerateDiff(actualScreenshotPath) {
-    const expectedScreenshot = this.getScreenshotData(this.expectedScreenshotPath);
+    const expectedScreenshot = this.getScreenshotData(
+      this.expectedScreenshotPath
+    );
     const actualScreenshot = this.getScreenshotData(actualScreenshotPath);
-    const numDiffPixels = this.generateDiffScreenshot(expectedScreenshot, actualScreenshot);
+    const numDiffPixels = this.generateDiffScreenshot(
+      expectedScreenshot,
+      actualScreenshot
+    );
 
     return numDiffPixels;
   }
@@ -55,7 +70,13 @@ class TestRunner {
   generateDiffScreenshot(expectedScreenshot, actualScreenshot) {
     const { width, height } = expectedScreenshot;
     const diffScreenshot = new PNG({ width, height });
-    const numDiffPixels = pixelMatch(expectedScreenshot.data, actualScreenshot.data, diffScreenshot.data, width, height);
+    const numDiffPixels = pixelMatch(
+      expectedScreenshot.data,
+      actualScreenshot.data,
+      diffScreenshot.data,
+      width,
+      height
+    );
 
     fs.writeFileSync(this.diffScreenshotPath, PNG.sync.write(diffScreenshot));
 

@@ -1,30 +1,30 @@
 {
-    "manifest_version": 3,
-    "name": "GitHub Markdown Printer",
-    "version": "0.10",
-    "description": "Print GitHub Flavored Markdown exactly as it appears on GitHub, with just two clicks.",
-    "homepage_url": "https://github.com/jerry1100/github-markdown-printer",
-    "icons": {
-        "16": "icons/icon16.png",
-        "48": "icons/icon48.png",
-        "128": "icons/icon128.png"
+  "manifest_version": 3,
+  "name": "GitHub Markdown Printer",
+  "version": "0.10",
+  "description": "Print GitHub Flavored Markdown exactly as it appears on GitHub, with just two clicks.",
+  "homepage_url": "https://github.com/jerry1100/github-markdown-printer",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "24": "icons/icon24.png",
+      "32": "icons/icon32.png"
     },
-    "action": {
-        "default_icon": {
-            "16": "icons/icon16.png",
-            "24": "icons/icon24.png",
-            "32": "icons/icon32.png"
-        },
-        "default_title": "Print Markdown"
-    },
-    "background": {
-        "service_worker": "background.js"
-    },
-    "permissions": ["activeTab", "scripting", "contextMenus"],
-    "web_accessible_resources": [
-        {
-            "resources": ["style.css"],
-            "matches": ["<all_urls>"]
-        }
-    ]
+    "default_title": "Print Markdown"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["activeTab", "scripting", "contextMenus"],
+  "web_accessible_resources": [
+    {
+      "resources": ["style.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
