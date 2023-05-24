@@ -26,10 +26,12 @@ function printPageForTab(tabId) {
 }
 
 function printPage() {
-  const markdownBody = document.querySelector('.markdown-body');
+  const content =
+    document.querySelector('.markdown-body') ??
+    document.querySelector('div[data-type="ipynb"]');
 
-  if (!markdownBody) {
-    alert('No markdown content found on this page');
+  if (!content) {
+    alert('No printable content found on this page');
     return;
   }
 
@@ -45,8 +47,14 @@ function printPage() {
     // Use light theme or else text contrast is bad
     document.documentElement.dataset.colorMode = 'light';
 
+    // For all iframes, change 'color_mode=dark' to 'color_mode=light' so that content
+    // is visible when printed
+    for (const iframe of document.querySelectorAll('iframe')) {
+      iframe.src = iframe.src.replace('color_mode=dark', 'color_mode=light');
+    }
+
     // Have markdown content occupy entire page
-    document.body.replaceChildren(markdownBody);
+    document.body.replaceChildren(content);
 
     // Keep track of iframes that have loaded. We aren't able to peer inside the frame
     // due to cross-origin restrictions, so we just wait for the frame to send us a
