@@ -48,10 +48,28 @@ function printPage() {
     // Have markdown content occupy entire page
     document.body.replaceChildren(markdownBody);
 
-    // Wait for any mermaid diagrams to load
-    if (document.querySelector('iframe')) {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-    }
+    // Keep track of iframes that have loaded. We aren't able to peer inside the frame
+    // due to cross-origin restrictions, so we just wait for the frame to send us a
+    // message when it's ready.
+    const loadedFrames = new Set();
+    window.addEventListener('message', ({ data }) => {
+      if (data.body === 'ready') {
+        loadedFrames.add(data.identity);
+      }
+    });
+
+    // Wait for all mermaid diagrams to load
+    const mermaidIds = Array.from(
+      document.querySelectorAll('section[data-type="mermaid"]')
+    ).map((node) => node.dataset.identity);
+    await new Promise((resolve) => {
+      const interval = setInterval(() => {
+        if (mermaidIds.every((id) => loadedFrames.has(id))) {
+          clearInterval(interval);
+          resolve();
+        }
+      }, 100);
+    });
 
     window.print();
 
