@@ -29,6 +29,7 @@ function printPage() {
   const markdownBody = document.querySelector('.markdown-body');
 
   if (!markdownBody) {
+    alert('No markdown content found on this page');
     return;
   }
 
