@@ -31,3 +31,11 @@ Make sure "Background graphics" are enabled in the print preview. To check, clic
 ### Indentation is weird in code blocks
 
 Long pieces of code that do not fit within the page will be wrapped to the next line. This wrapping may mess up the indentation.
+
+### Jupyter notebooks formatting is off
+
+Keep trying until the formatting looks correct. Notebooks are rendered using iframes, which we don't have much control over, so the formatting can often be wrong. For whatever reason, it sometimes gets it right after several attempts.
+
+### Mermaid diagrams are cut off
+
+Keep trying until they're not cut off. Like notebooks, mermaid diagrams are rendered using iframes, which we don't have much control over. Despite many hours of trying, I haven't been able to get them to render correctly on the first try.
