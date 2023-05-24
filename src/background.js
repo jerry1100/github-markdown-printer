@@ -79,6 +79,14 @@ function printPage() {
       }, 100);
     });
 
+    // Give jupyter notebooks some time to load before attempting to print. Tried to
+    // extend iframe waiting logic to handle this case, but for some reason the iframe
+    // doesn't send the ready event after content is replaced.
+    const notebook = document.querySelector('div[data-type="ipynb"]');
+    if (notebook) {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    }
+
     window.print();
 
     // Clean up - revert to original
