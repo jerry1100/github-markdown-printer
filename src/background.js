@@ -39,14 +39,13 @@ function printPage() {
   document.head.appendChild(link);
   link.addEventListener('load', async () => {
     const bodyHtml = document.body.innerHTML;
-    const markdownHtml = markdownBody.outerHTML;
     const theme = document.documentElement.dataset.colorMode;
 
     // Use light theme or else text contrast is bad
     document.documentElement.dataset.colorMode = 'light';
 
     // Have markdown content occupy entire page
-    document.body.innerHTML = markdownHtml;
+    document.body.replaceChildren(markdownBody);
 
     // Wait for any mermaid diagrams to load
     if (document.querySelector('iframe')) {
