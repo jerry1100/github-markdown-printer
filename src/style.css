@@ -3,6 +3,11 @@ pre {
   white-space: pre-wrap !important;
 }
 
+/* Hide copy button for code blocks */
+pre + div.zeroclipboard-container {
+  display: none;
+}
+
 @page {
   size: auto;
   margin: 54pt;
