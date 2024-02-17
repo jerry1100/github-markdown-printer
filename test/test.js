@@ -33,13 +33,19 @@ async function getTestResults(testCases) {
 }
 
 async function tryRunTest(testName, urlToTest) {
-  try {
-    return await runTest(testName, urlToTest);
-  } catch (e) {
-    console.error(`[${testName}] Exception during test: ${e}`);
+  return new Promise(async (resolve) => {
+    setTimeout(() => {
+      console.error(`[${testName}] Test timed out`);
+      resolve(false);
+    }, 15000);
 
-    return false;
-  }
+    try {
+      resolve(await runTest(testName, urlToTest));
+    } catch (e) {
+      console.error(`[${testName}] Exception during test: ${e}`);
+      resolve(false);
+    }
+  });
 }
 
 async function runTest(testName, urlToTest) {
