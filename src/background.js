@@ -9,6 +9,7 @@ chrome.action.onClicked.addListener((tab) => {
 chrome.contextMenus.create({
   title: 'Print GitHub Markdown',
   id: GITHUB_MARKDOWN_PRINTER,
+  documentUrlPatterns: ["https://github.com/*"]
 });
 
 // Respond to context menu clicks
