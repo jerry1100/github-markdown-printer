@@ -24,7 +24,7 @@
   "web_accessible_resources": [
     {
       "resources": ["style.css"],
-      "matches": ["<all_urls>"]
+      "matches": ["https://*.github.com/*"]
     }
   ]
 }
