@@ -58,10 +58,12 @@ function printPage() {
 
     await waitForMermaidDiagramsToLoad();
     await waitForJupyterNotebooksToLoad();
+    const revertHeadingsLinkable = makeHeadingsLinkable();
 
     window.print();
 
     // Clean up - revert to original
+    revertHeadingsLinkable();
     document.body.innerHTML = bodyHtml;
     document.documentElement.dataset.colorMode = theme;
     document.head.removeChild(link);
@@ -102,5 +104,59 @@ function printPage() {
     if (notebook) {
       await new Promise((resolve) => setTimeout(resolve, 2000));
     }
+  }
+
+  function makeHeadingsLinkable() {
+    const headings = [
+      ...document.getElementsByTagName('h1'),
+      ...document.getElementsByTagName('h2'),
+      ...document.getElementsByTagName('h3'),
+      ...document.getElementsByTagName('h4'),
+      ...document.getElementsByTagName('h5'),
+      ...document.getElementsByTagName('h6'),
+    ];
+
+    const normalize = (text) => {
+      return text
+        .trim()
+        .toLowerCase()
+        .replaceAll(' ', '-')
+        .replace(/[^a-z0-9\-]/g, ''); // only keep letters, numbers, and hyphens
+    };
+
+    // Add ids to all headings
+    const ids = new Set();
+    for (const heading of headings) {
+      heading.id = normalize(heading.textContent);
+      ids.add(heading.id);
+    }
+
+    // Update internal links to point to the new ids
+    const internalLinks = document.querySelectorAll(
+      'a[href^="#"]:not(.markdown-heading a)'
+    );
+    const originalHrefs = new Map(); // store original hrefs to revert later
+    for (const link of internalLinks) {
+      const href = link.getAttribute('href');
+      const normalized = normalize(href.slice(1)); // remove leading '#'
+
+      if (ids.has(normalized)) {
+        originalHrefs.set(link, href);
+        link.href = `#${normalized}`;
+      }
+    }
+
+    // Cleanup
+    return () => {
+      // Revert all heading ids
+      for (const heading of headings) {
+        heading.removeAttribute('id');
+      }
+
+      // Revert internal links back to their original hrefs
+      for (const [link, href] of originalHrefs) {
+        link.setAttribute('href', href);
+      }
+    };
   }
 }
