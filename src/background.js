@@ -56,10 +56,23 @@ function printPage() {
     // Have markdown content occupy entire page
     document.body.replaceChildren(content);
 
+    await waitForMermaidDiagramsToLoad();
+    await waitForJupyterNotebooksToLoad();
+
+    window.print();
+
+    // Clean up - revert to original
+    document.body.innerHTML = bodyHtml;
+    document.documentElement.dataset.colorMode = theme;
+    document.head.removeChild(link);
+  });
+
+  async function waitForMermaidDiagramsToLoad() {
     // Keep track of iframes that have loaded. We aren't able to peer inside the frame
     // due to cross-origin restrictions, so we just wait for the frame to send us a
     // message when it's ready.
     const loadedFrames = new Set();
+
     window.addEventListener('message', ({ data }) => {
       if (data.body === 'ready') {
         loadedFrames.add(data.identity);
@@ -70,6 +83,7 @@ function printPage() {
     const mermaidIds = Array.from(
       document.querySelectorAll('section[data-type="mermaid"]')
     ).map((node) => node.dataset.identity);
+
     await new Promise((resolve) => {
       const interval = setInterval(() => {
         if (mermaidIds.every((id) => loadedFrames.has(id))) {
@@ -78,7 +92,9 @@ function printPage() {
         }
       }, 100);
     });
+  }
 
+  async function waitForJupyterNotebooksToLoad() {
     // Give jupyter notebooks some time to load before attempting to print. Tried to
     // extend iframe waiting logic to handle this case, but for some reason the iframe
     // doesn't send the ready event after content is replaced.
@@ -86,12 +102,5 @@ function printPage() {
     if (notebook) {
       await new Promise((resolve) => setTimeout(resolve, 2000));
     }
-
-    window.print();
-
-    // Clean up - revert to original
-    document.body.innerHTML = bodyHtml;
-    document.documentElement.dataset.colorMode = theme;
-    document.head.removeChild(link);
-  });
+  }
 }
