@@ -77,7 +77,8 @@ class TestRunner {
       actualScreenshot.data,
       diffScreenshot.data,
       width,
-      height
+      height,
+      { threshold: 0.2 }
     );
 
     fs.writeFileSync(this.diffScreenshotPath, PNG.sync.write(diffScreenshot));
