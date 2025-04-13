@@ -2,7 +2,10 @@ const TestCase = require('./test-case');
 const TestRunner = require('./test-runner');
 
 const testCases = [
-  new TestCase('project root', 'https://github.com/moby/moby'),
+  new TestCase(
+    'project root',
+    'https://github.com/jerry1100/messenger-dark-theme'
+  ),
   new TestCase(
     'folder root',
     'https://github.com/jerry1100/github-markdown-printer/tree/master/test/sample'
