@@ -1,4 +1,4 @@
-# github-markdown-printer [![test](https://github.com/jerry1100/github-markdown-printer/actions/workflows/test-markdown.yml/badge.svg)](https://github.com/jerry1100/github-markdown-printer/actions/workflows/test-markdown.yml)
+# github-markdown-printer
 
 Print GitHub Flavored Markdown _exactly_ as it appears on GitHub, with just two clicks.
 
