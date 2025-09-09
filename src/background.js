@@ -1,5 +1,13 @@
 const GITHUB_MARKDOWN_PRINTER = 'GITHUB_MARKDOWN_PRINTER';
 
+// Respond to keyboard shortcut commands
+chrome.commands.onCommand.addListener((command) => {
+  chrome.tabs.query({ active: true, lastFocusedWindow: true }, function (tabs) {
+    let currentTab = tabs[0];
+    printPageForTab(currentTab.id);
+  });
+});
+
 // Respond to clicks on the extension icon
 chrome.action.onClicked.addListener((tab) => {
   printPageForTab(tab.id);

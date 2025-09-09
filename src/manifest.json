@@ -26,5 +26,14 @@
       "resources": ["style.css"],
       "matches": ["https://*.github.com/*"]
     }
-  ]
+  ],
+  "host_permissions": ["https://*.github.com/*"],
+  "commands": {
+    "print": {
+      "suggested_key": {
+        "default": "Alt+P"
+      },
+      "description": "Attempts to print the markdown"
+    }
+  }
 }
